@@ -29,7 +29,7 @@ const Url = model("Url", urlSchema);
 
 //home
 app.get('/',(req,res) => {
-  res.redirect("https://lilurls.vercel.app/")
+  res.redirect("https://lilurl.vercel.app/")
 })
 
 // Shorten a URL
@@ -56,7 +56,42 @@ app.get("/:shortUrl", async (req, res) => {
     if (url) {
       res.redirect(url.longUrl);
     } else {
-      res.status(404).json({ message: "URL not found" });
+      res.status(404).send(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Error</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+          margin: 50px;
+        }
+        .error-message {
+          color: red;
+          font-size: 24px;
+        }
+        .home-button {
+          display: inline-block;
+          margin-top: 20px;
+          padding: 10px 20px;
+          font-size: 18px;
+          color: #fff;
+          background-color: #007bff;
+          text-decoration: none;
+          border-radius: 5px;
+        }
+        .home-button:hover {
+          background-color: #0056b3;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="error-message">url does not exist in databse.</div>
+      <a href="https://lilurl.vercel.app/" class="home-button">Go to Home</a>
+    </body>
+    </html>
+  `);
     }
   } catch (error) {
     res.status(500).json({ message: "Error finding URL", error });
