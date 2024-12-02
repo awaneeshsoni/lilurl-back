@@ -54,7 +54,7 @@ app.get("/:shortUrl", async (req, res) => {
     const url = await Url.findOne({ shortUrl });
 
     if (url) {
-      res.redirect(url.longUrl);
+      res.status(200).json({url.longUrl});
     } else {
       res.status(404).json({ message: "URL not found" });
     }
