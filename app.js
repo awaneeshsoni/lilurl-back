@@ -25,6 +25,13 @@ const Url = model("Url", urlSchema);
 
 // API Routes
 
+//home
+app.get('/',(req,res) => {
+  res.send({
+    "msg": "Working"
+  })
+})
+
 // Shorten a URL
 app.post("/shorten", async (req, res) => {
   const { longUrl } = req.body;
