@@ -27,9 +27,7 @@ const Url = model("Url", urlSchema);
 
 //home
 app.get('/',(req,res) => {
-  res.send({
-    "msg": "Working"
-  })
+  res.send("working")
 })
 
 // Shorten a URL
