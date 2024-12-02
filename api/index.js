@@ -9,7 +9,12 @@ const app = express();
 
 // Middleware
 app.use(json());
-app.use(cors());
+const corsOptions = {
+  origin: 'https://lilurl.vercel.app/',  // Replace with your actual frontend URL
+  methods: "GET,POST",
+  allowedHeaders: "Content-Type",
+};
+app.use(cors(corsOptions));
 
 const MONGO = process.env.MONGODB_URI;
 // MongoDB Connection
