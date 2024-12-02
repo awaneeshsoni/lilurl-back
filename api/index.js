@@ -11,7 +11,7 @@ const app = express();
 app.use(json());
 app.use(cors());
 
-const MONGO = process.env.DB;
+const MONGO = process.env.MONGODB_URI;
 // MongoDB Connection
 connect(MONGO)
   .then(() => console.log("MongoDB connected"))
