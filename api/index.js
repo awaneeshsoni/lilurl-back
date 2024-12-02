@@ -29,7 +29,7 @@ const Url = model("Url", urlSchema);
 
 //home
 app.get('/',(req,res) => {
-  res.send("working")
+  res.redirect("https://lilurls.vercel.app/")
 })
 
 // Shorten a URL
