@@ -8,6 +8,7 @@ const app = express();
 
 // Middleware
 app.use(json());
+app.use(cors());
 
 const MONGO = process.env.DB;
 // MongoDB Connection
