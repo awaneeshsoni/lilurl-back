@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import express, { json } from "express";
 import { connect, Schema, model } from "mongoose";
 import { generate } from "shortid";
+import cors from "cors"
 dotenv.config();
 
 const app = express();
