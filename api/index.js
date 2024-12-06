@@ -10,7 +10,7 @@ const app = express();
 // Middleware
 app.use(json());
 const corsOptions = {
-  origin: 'https://lilurl.vercel.app',  // Replace with your actual frontend URL
+  origin: ['https://lilurl.vercel.app', 'https://lilurls.vercel.app'],  // Replace with your actual frontend URL
   methods: "GET,POST",
   allowedHeaders: "Content-Type",
 };
